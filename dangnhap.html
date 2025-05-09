@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dang nhap</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0057e7;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0041b3;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .social-button img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    .divider {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ccc;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      color: #888;
+    }
+
+    .forgot {
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: block;
+      text-align: right;
+    }
+
+    .forgot a {
+      color: #0057e7;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+	function validateForm() {
+	  const email = document.getElementById("email").value.trim();
+	  const password = document.getElementById("password").value.trim();
+  
+	  if (email === "" || password === "") {
+		alert("Vui lòng nhập đầy đủ Email và Mật khẩu.");
+		return false; // không cho submit
+	  }
+  
+	  // Nếu hợp lệ thì chuyển trang
+	  window.location.href = "dalogin.html";
+	  return false; // chặn form submit mặc định
+	}
+  </script>  
+</head>
+<body>
+  <div class="login-container">
+    <h2>Chào mừng quay trở lại</h2>
+    <form onsubmit="return validateForm()">
+		<input type="email" id="email" placeholder="name@email.com" required>
+		<input type="password" id="password" placeholder="Enter your password" required>
+		<div class="forgot"><a href="#">Forgot password?</a></div>
+		<button type="submit">Login</button>
+	  </form>
+	  
+
+    <div class="divider"><span>or</span></div>
+
+    <div class="social-button"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/>Continue with Google</div>
+    <div class="social-button"><img src="https://img.icons8.com/color/48/000000/facebook.png"/>Continue with Facebook</div>
+    <div class="social-button"><img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png"/>Continue with Apple</div>
+  </div>
+</body>
+</html>

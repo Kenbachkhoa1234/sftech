@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dang ky</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .sub-text {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0057e7;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0041b3;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      color: #888;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .social-btn img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .bottom-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .bottom-text a {
+      color: #0057e7;
+      text-decoration: none;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Đăng ký</h2>
+    <p class="sub-text">Học theo thời gian biểu của bạn,<br>từ những trường đại học và doanh nghiệp hàng đầu.</p>
+    <form onsubmit="return validateForm()">
+      <label>Họ và tên *</label>
+      <input type="text" id="fullname" placeholder="Nhập đầy đủ họ tên của bạn" required>
+
+      <label>E-mail *</label>
+      <input type="email" id="email" placeholder="ten@email.com" required>
+
+      <label>Mật khẩu *</label>
+      <input type="password" id="password" placeholder="Tạo mật khẩu" required>
+
+      <button type="submit">Tham gia miễn phí</button>
+    </form>
+
+    <!-- ✅ Hiển thị thông báo -->
+    <div id="message"></div>
+
+    <div class="divider"><span>hoặc</span></div>
+
+    <div class="social-btn"><img src="https://img.icons8.com/color/48/google-logo.png">Tiếp tục với Google</div>
+    <div class="social-btn"><img src="https://img.icons8.com/color/48/facebook.png">Tiếp tục với Facebook</div>
+    <div class="social-btn"><img src="https://img.icons8.com/ios-filled/50/mac-os.png">Tiếp tục với Apple</div>
+
+    <div class="bottom-text">
+      Đã có tài khoản? <a href="#">Đăng nhập</a><br><br>
+      <a href="#">Đăng ký thông qua tổ chức của bạn</a>
+    </div>
+  </div>
+
+<script>
+  function validateForm() {
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (fullname === "" || email === "" || password.length < 8) {
+      alert("Vui lòng nhập đầy đủ thông tin và mật khẩu từ 8 ký tự trở lên.");
+      return false;
+    }
+
+    document.getElementById("message").innerHTML = `
+      Đăng ký thành công!<br>
+    `;
+
+    setTimeout(() => {
+      window.location.href = "dalogin.html";
+    }, 2000);
+
+    return false; 
+  }
+</script>
+</body>
+</html>
